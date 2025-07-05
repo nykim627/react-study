@@ -28,6 +28,7 @@
 └── /public
 ```` -->
 
+
 <!-- ## 🚀 Getting Started
 
 ```bash
@@ -37,6 +38,8 @@ npm install
 # 로컬 실행
 npm start
 ``` -->
+
+---
 
 ## ✍️ Study Log / 학습 로그
 
@@ -51,22 +54,30 @@ npm start
 
 > 💡 커밋 메시지를 명확히 작성하고, 로그를 남기면 추후 복습에 도움이 됩니다.
 
+---
+
 ## 📌 참고 자료
 
 * [React 공식 문서](https://reactjs.org/)
 * [노마드 코더 강의 페이지](https://nomadcoders.co/react-for-beginners/)
 * [MDN - JavaScript 문법](https://developer.mozilla.org/ko/docs/Web/JavaScript)
 
+---
+
 ## 💻 About Me
 
 > SSAFY 13기 / Full-Stack 개발자 지망생
 > 꾸준한 학습과 기록을 통해 React 실력을 다지는 중입니다.
+
+---
 
 ## 📝 License
 
 This project is for educational purposes only.
 
 <!-- ```
+
+---
 
 ### 🔧 사용 팁
 
