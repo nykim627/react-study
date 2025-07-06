@@ -8,73 +8,32 @@
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
   <!-- JSX 사용을 위해 필요 -->
   <script type="text/babel">
-    //슈퍼 단위 변환앱 만들기 (사용자가 변환하고 싶은 단위 선택)
-    function MinutesToHour() {
-      //단위 변환앱 만들기 - React JS에서 form을 다루는 방법을 알아보자
-      const [amount, setAmount] = React.useState(0);
-      const [flipped, setFlipped] = React.useState(false);
-      const onChange = (event) => {
-        // console.log(event);   // SyntheticEvent
-        console.log(event.target.value);
-        setAmount(event.target.value);
-      };
-      const onFlip = () => {
-        setFlipped((current) => !current);
-        reset();
-      };
-      const reset = () => setAmount(0);
+    function Btn({ text, changeValue }) {
+      console.log(text, "was rendered"); //Btn과 MemorizedBtn의 차이 확인용
       return (
-        <div>
-          <div>
-            <label htmlFor="minutes">Minutes </label>
-            <input
-              value={flipped ? amount * 60 : amount}
-              id="minutes"
-              placeholder="Minutes"
-              type="number"
-              onChange={onChange}
-              disabled={flipped}
-            />
-          </div>
-          <h4>You want to convert {amount}</h4>
-          <div>
-            <label htmlFor="hours">Hours </label>
-            <input
-              value={flipped ? amount : Math.round(amount / 60)}
-              id="hours"
-              placeholder="Hours"
-              type="number"
-              onChange={onChange}
-              disabled={!flipped}
-            />
-          </div>
-          <button onClick={reset}>Reset</button>
-          <button onClick={onFlip}>{flipped ? "Turn back" : "Flip"}</button>
-        </div>
+        <button
+          onClick={changeValue}
+          style={{
+            backgroundColor: "tomato",
+            color: "white",
+            padding: "10px 20px",
+            border: 0,
+            borderRadius: 10,
+          }}
+        >
+          {text}
+        </button>
       );
     }
-    function KmToMiles() {  //마음의 숙제~~
-      return <h3>KM 2 M</h3>;
-    }
+    const MemorizedBtn = React.memo(Btn); //props의 state가 변하지 않는 컴포넌트는 기억해두고 re-render하지 않도록
     function App() {
-      const [index, setIndex] = React.useState("xx");
-      const onSelect = (event) => {
-        // console.log(event.target.value);
-        setIndex(event.target.value);
-      };
-      console.log('rednder w/', index)
+      const [value, setValue] = React.useState("Save Changes");
+      const changeValue = () => setValue("Revert Changes");
       return (
         <div>
-          <h1>Super Converter</h1>
-          <select onChange={onSelect} value={index}>
-            <option value="xx">Select your units</option>
-            <option value="0">Minutes & Hours</option>
-            <option value="1">Km & Miles</option>
-          </select>
-          <hr />
-          {index === "xx" ? "Please select your units" : null}
-          {index === "0" ? <MinutesToHour /> : null}
-          {index === "1" ? <KmToMiles /> : null}
+          {/* Btn({ banana: "Save Changes" }) <- JSX 안에서 주석 쓰는 방법 */}
+          <MemorizedBtn text={value} changeValue={changeValue} />
+          <MemorizedBtn text="Continue" />
         </div>
       );
     }
