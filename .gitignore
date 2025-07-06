@@ -1,20 +1,54 @@
-# Created by https://www.toptal.com/developers/gitignore/api/react
-# Edit at https://www.toptal.com/developers/gitignore?templates=react
+# ==========================================
+# Common Git Ignore for React + Node + Dev
+# ==========================================
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
-### react ###
-.DS_*
+# =============== Dependencies ===============
+/node_modules
+/node_modules/
+/.pnp
+.pnp.js
+bower_components
+
+# =============== Testing ===============
+/coverage
+
+# =============== Production ===============
+/build
+
+# =============== Environment Config ===============
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# =============== OS & Editor ===============
+.DS_Store
+**/.DS_Store
+*.sublime*
+
+# =============== Logs & Debug ===============
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
 *.log
-logs
+logs/
+**/logs/
 **/*.backup.*
 **/*.back.*
 
-node_modules
-bower_components
-
-*.sublime*
-
-psd
+# =============== Design Files ===============
+*.psd
+*.sketch
 thumb
-sketch
 
-# End of https://www.toptal.com/developers/gitignore/api/react
+# =============== Custom Props ===============
+**/*.sublime*
+**/*.backup.*
+**/*.back.*
+
+# =============== Optional Enhancements ===============
+# Uncomment below if needed
+.vscode/
+.idea/
+dist/
